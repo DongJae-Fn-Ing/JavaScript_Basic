@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+.card-background{
+  height: 3000px;
+  margin-top: 800px;
+  margin-bottom: 1600px;
+}
+
+.card-box{
+  position: sticky;
+  top: 100px;
+  margin-top: 200px;
+}
+
+.card-box img{
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+}
+  </style>
+</head>
+<body>
+  <div class="card-background">
+    <div class="card-box">
+      <img src="img/card1.png" alt="이미지" class="card">
+    </div>
+    <div class="card-box">
+      <img src="img/card2.png" alt="이미지" class="card">
+    </div>
+    <div class="card-box">
+      <img src="img/card3.png" alt="이미지" class="card">
+    </div>
+  </div>
+  <script>
+    window.addEventListener("scroll", function(){
+      var scrollTT = window.scrollY;
+      console.log(scrollTT);
+      //708 은 1
+      //1532 은 0
+      //위 수치만큼 스크롤바를 내리면
+      // 첫째카드 opacity 없애주셈
+
+      // y = a * 높이 + b
+      /* 대입법 */ 
+
+      //이런식 변수에 방정식 풀이한 것을 사용한 것을 담고 값을 아래처럼 설정해주면 된다.
+      var y =  -1/824 * scrollTT + 383/206;
+      var size = -1/8240 * scrollTT + 2237/2060;
+      // 이런식으로 미지의 변수로 짜면
+      //  1 = a * 708 + b 
+
+      // 1+ b = a708
+
+      // 1/708
+
+      //0 = a* 1532 + b 
+      document.getElementsByClassName('card-box')[0].style.opacity = y;
+      document.getElementsByClassName('card-box')[0].style.transform  = `scale(${size})`;
+    });
+  </script>
+</body>
+</html>

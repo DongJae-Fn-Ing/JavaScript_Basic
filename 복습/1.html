@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hidden {
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .wrap {
+      width: 1600px;
+      height: 300px;
+      transition: all 0.3s ease-in;
+    }
+
+    .box {
+      width: 400px;
+      height: 100%;
+      float: left;
+    }
+
+    .box1 {
+      background: red;
+    }
+
+    .box2 {
+      background: blue;
+    }
+
+    .box3 {
+      background: green;
+    }
+
+    .box4 {
+      background: yellow;
+    }
+
+    .scroll{
+      width: 400px;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body style="height: 1500px;">
+  <div class="hidden">
+    <div class="wrap">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+    </div>
+  </div>
+  <button type="button" class="prev">이전</button>
+  <button type="button" class="btn1">1</button>
+  <button type="button" class="btn2">2</button>
+  <button type="button" class="btn3">3</button>
+  <button type="button" class="btn4">4</button>
+  <button type="button" class="next">다음</button>
+  <button type="button" class="auto">자동</button>
+  <button type="button" class="no">멈춤</button>
+
+  <h3 style="font-size: 50px;">dddd</h3>
+
+  <div class="scroll">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis rem voluptatem beatae amet inventore qui voluptatibus et cum explicabo? Eum commodi quo, dolorem laborum repudiandae dignissimos vel labore repellat sint?
+    
+  </div>
+  <script>
+    let btn1 = document.getElementsByClassName('btn1')[0];
+    let btn2 = document.getElementsByClassName('btn2')[0];
+    let btn3 = document.getElementsByClassName('btn3')[0];
+    let btn4 = document.getElementsByClassName('btn4')[0];
+    let wrap = document.querySelector('.wrap');
+    let next = document.getElementsByClassName('next')[0];
+    let prev = document.getElementsByClassName('prev')[0];
+    let auto = document.getElementsByClassName('auto')[0];
+    let no = document.getElementsByClassName('no')[0];
+    var count = 0;
+
+    btn1.addEventListener('click', function () {
+      count = 0;
+      wrap.style.transform = "translateX(0)"
+      //1번을 클릭하면 wrap x축을 0만큼 이동한다
+    });
+    btn2.addEventListener('click', function () {
+      count = 4;
+      wrap.style.transform = "translateX(-400px)"
+      //2번을 클릭하면 wrpa x축을 -400만큼 민다
+    });
+    btn3.addEventListener('click', function () {
+      count = 8;
+      wrap.style.transform = "translateX(-800px)"
+      //3번을 클릭하면 wrpa x축을 -800만큼 민다
+    });
+    btn4.addEventListener('click', function () {
+      count = 12;
+      wrap.style.transform = "translateX(-1200px)"
+      //3번을 클릭하면 wrpa x축을 -1200만큼 민다
+    });
+    next.addEventListener('click', function () {
+      count += 4;
+      if (count >= 12) {
+        count = 12;
+      }
+      wrap.style.transform = "translateX(-" + count + "00px)";
+    });
+    prev.addEventListener('click', function () {
+      count -= 4;
+      wrap.style.transform = "translateX(-" + count + "00px)";
+      if (count <= 0) {
+        count = 0;
+      }
+    });
+
+
+    var onOff = false;
+    auto.addEventListener('click', function () {
+      var dos = setInterval(function () {   
+        if (count >= 16) {
+          count = 0;
+        }
+        wrap.style.transform = "translateX(-" + count + "00px)";
+        count += 4;
+      }, 1000);
+
+
+    });
+ 
+
+    window.addEventListener('scroll',function(){
+      var asd = window.scrollY;
+      console.log(asd);
+      if(asd > 300 ){
+        document.getElementsByTagName('h3')[0].style.fontSize ="100px";
+      }else{
+        document.getElementsByTagName('h3')[0].style.fontSize ="30px";
+      }
+    });
+
+    document.getElementsByClassName('scroll')[0].addEventListener('scroll',function(){
+      var a1 = document.getElementsByClassName('scroll')[0].scrollTop;
+      var a2 = document.getElementsByClassName('scroll')[0].clientHeight; 
+      var a3 = document.getElementsByClassName('scroll')[0].scrollHeight
+
+      if(a3-10 == a1+a2 ){
+        alert("스크롤이다 똥개들아");
+      }
+    });
+
+
+    function 계산기(a,b,c){
+      if(b === "="){
+        return(a+c);
+      }else if(b==="-"){
+        return(a-c);
+      }else if(b==="*"){
+        return(a*c).toFixed(2);
+      }else if(b==="/"){
+        return(a/c);
+      }
+
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+<body>
+  <div class="alert_box" id="aa">
+    <p id="bb">알림창임</p>
+  </div>
+  
+  <button type="button" onclick="text('block','아이디를 입력해주세요')">버튼1</button>
+  <button type="button"onclick="text('block','비밀번호를 입력해주세요')">버튼2</button>
+
+  <script>
+    function text(ww,bos){
+      document.getElementById('bb').innerHTML = bos;
+      document.getElementById('aa').style.display = ww;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 1000px;
+      height: auto;
+      border: 1px solid black;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .box {
+      width: 300px;
+      height: 500px;
+      border: 1px solid blue;
+      margin-bottom: 20px;
+    }
+
+    .more,
+    .money_baby {
+      width: 100px;
+      height: 50px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" style="text-align: center;">
+
+  </div>
+  <button type="button" class="more">더보기</button>
+  <button type="button" class="money_baby">가격순 정렬</button>
+  <button type="button" class="abc">다나가 정렬</button>
+  <button type="button" class="six">6만원이하</button>
+
+  <script>
+    var products = [{
+        id: 0,
+        price: 70000,
+        title: 'Blossom Dress'
+      },
+      {
+        id: 1,
+        price: 50000,
+        title: 'Springfield Shirt'
+      },
+      {
+        id: 2,
+        price: 60000,
+        title: 'Black Monastery'
+      }
+    ];
+
+    function 재활용() {
+      products.forEach(function (itme) {
+        var name = itme.title;
+        var money = itme['price'];
+        var box = `
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">${name}</h3>
+        <p class="price">${money}원</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+    `;
+        document.getElementsByClassName('wrap')[0].insertAdjacentHTML('beforeend', box);
+      });
+
+    }
+
+
+    재활용();
+
+
+    var coount = 0;
+    document.getElementsByClassName('more')[0].addEventListener("click", function (e) {
+      coount++;
+      console.log(coount);
+
+      fetch('https://codingapple1.github.io/js/more' + coount + '.json').then(res => res.json())
+        .then(function (data) {
+          data.forEach(function (item) {
+            let moreBox = `
+           <div class="box">
+              <img src="https://via.placeholder.com/300" alt="">
+                <div class="text_box">
+                    <h3 class="title">${item.title}</h3>
+                    <p class="price">${item.price}</p>
+                   <button type="button">버튼</button>
+                 </div>
+            </div>
+           `;
+            document.getElementsByClassName('wrap')[0].insertAdjacentHTML("beforeend", moreBox);
+          })
+        })
+        .catch(function (error) {
+          console.log('실패함')
+        });
+
+      if (coount == 3) {
+        document.getElementsByClassName('more')[0].style.display = "none";
+        setTimeout(function () {
+          coount = 0;
+          document.getElementsByClassName('more')[0].style.display = "block";
+        }, 7000);
+      }
+
+
+
+
+
+      /*      if (coount == 1) {
+             fetch('https://codingapple1.github.io/js/more1.json').then(res => res.json())
+             .then(function (data) {
+               data.forEach(function (item) {
+                 let moreBox = `
+                <div class="box">
+                   <img src="https://via.placeholder.com/300" alt="">
+                     <div class="text_box">
+                         <h3 class="title">${item.title}</h3>
+                         <p class="price">${item.price}</p>
+                        <button type="button">버튼</button>
+                      </div>
+                 </div>
+                `;
+                 document.getElementsByClassName('wrap')[0].insertAdjacentHTML("beforeend", moreBox);
+               })
+             })
+             .catch(function (error) {
+               console.log('실패함')
+             }); 
+           }else if(coount == 2){
+             fetch('https://codingapple1.github.io/js/more2.json').then(res => res.json())
+             .then(function (data) {
+               console.log(data);
+               data.forEach(function (item) {
+                 let moreBox = `
+                <div class="box">
+                   <img src="https://via.placeholder.com/300" alt="">
+                     <div class="text_box">
+                         <h3 class="title">${item.title}</h3>
+                         <p class="price">${item.price}</p>
+                        <button type="button">버튼</button>
+                      </div>
+                 </div>
+                `;
+                 document.getElementsByClassName('wrap')[0].insertAdjacentHTML("beforeend", moreBox);
+               })
+             })
+             .catch(function (error) {
+               console.log('실패함')
+             }); 
+           }else if(coount == 3){
+             this.style.disply= "none";
+             setTimeout(function(){
+               this.style.disply= "block";
+               count = 0;
+             },7000);
+           } */
+
+    });
+
+
+
+    let money = document.getElementsByClassName('money_baby')[0];
+
+    money.addEventListener("click", function () {
+      products.sort(function (a, b) {
+        return a.price - b.price;
+      });
+      console.log(products);
+      document.getElementsByClassName('wrap')[0].innerHTML = '';
+      재활용();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var 어레이 = [7, 3, 5, 2, 40];
+    var 어레이2 = ['a', 'b', 'c'];
+    어레이.sort();
+    //문자순
+    어레이.sort(function (a, b) {
+      //여기서 a와 b는 array 배열 안에 있던 하나 하나의 자료들
+      return a - b
+      // 리턴 오른쪽에 수가 양수면 a를 오른쪽으로 보낸다 한다. 숫자 오른차순 정렬
+      // 리턴 오른쪽에 수가 음수면 b를 오른쪽으로 보낸다 한다. 숫자 내리 차순 정렬
+    });
+    console.log(어레이);
+
+
+
+    //문자열 내림차수 정렬
+
+    어레이2.sort(function (a, b) {
+      if (a < b) return 1;
+      if (a > b) return -1;
+      if (a === b) return 0;
+    });
+    //원리
+    console.log(어레이2);
+
+
+
+
+
+    // 배열에서 원하는 자료만 출력하는 법
+
+    var 어레이3 = [7, 3, 5, 2, 40];
+
+
+    var 새어레이 = 어레이3.filter(function (a) {
+      //a는 배열의 하나 하나의 자료
+      return a < 4
+    });
+    console.log(새어레이);
+
+    //필터함수는 신문법이기 때문에 변수 안에 담아서 사용을 해야한다
+    //sort 함수는 원본을 변형
+    //filter 원본 변형x
+    //쇼핑몰할 때 얼마 이하 가격만 찾기 등등 사용한다.
+
+    //map
+    var 새어레이2 = 어레이3.map(function (a) {
+      //a는 배열의 하나 하나의 자료
+      return a * 4
+    });
+    //map 어레이 자료들을 똑같이 변형을 시켜준다.
+    // 이러면 4씩 곱해줘서 나온다.
+    console.log(새어레이2);
+    // 어떨 때 쓰냐 게임 사이트의 실제 가격은 달러지만 
+    // 원화로 만들어 줄 때 1000원을 곱해서 만들어준다.
+
+
+
+    document.getElementsByClassName('abc')[0].addEventListener("click", function () {
+      products.sort(function (a, b) {
+        if (a.title < b.title) return 1;
+        if (a['title'] > b['title']) return -1;
+        if (a['title'] === b['title']) return 0;
+      })
+      document.getElementsByClassName('wrap')[0].innerHTML = '';
+
+      재활용();
+    });
+
+
+    document.getElementsByClassName('six')[0].addEventListener("click", function () {
+
+      var 가격정렬 = products.filter(function (a) {
+        return a.price < 60000;
+      });
+      //원본을 건들지 않기 때문에 변수에 담아서 사용한다.
+      document.getElementsByClassName('wrap')[0].innerHTML = '';
+
+      products = 가격정렬;
+      재활용();
+    });
+  </script>
+</body>
+
+</html>

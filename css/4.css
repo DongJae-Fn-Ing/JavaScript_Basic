@@ -1,0 +1,13 @@
+.modal{
+  width: 500px;
+  height: 200px;
+  background-color: skyblue;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.on{
+  visibility: visible;
+  opacity: 1;
+}

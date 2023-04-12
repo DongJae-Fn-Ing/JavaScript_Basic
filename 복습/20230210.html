@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      display: none;
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+    }
+
+    .modal {
+      width: 500px;
+      height: 200px;
+      background-color: skyblue;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .on {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>20230202 복습</h1>
+  <div class="box">
+    <p class="asd"></p>
+    <button type="button" class="close">닫기</button>
+  </div>
+  <button type="button" class="btn1">아이디 입력</button>
+  <button type="button" class="btn2">비밀번호 입력</button>
+
+
+
+
+
+
+
+
+
+  <div class="modal">
+    아이디 비번 입력
+    <form action="server.html">
+      <input type="text" name="" id="" class="asd">
+      <br>
+      <input type="password" name="" id="password">
+      <br>
+      <button type="submit" class="btn_submit">전송</button>
+      <!-- 전송할 때 버튼 타입 submit -->
+      <button type="button" class="btn_close">닫기</button>
+    </form>
+  </div>
+  <button class="btn">로그인</button>
+  <p>안녕</p>
+  <script>
+    var btn1 = document.getElementsByClassName('btn1')[0];
+    var btn2 = document.getElementsByClassName('btn2')[0];
+    let box = document.getElementsByClassName('box')[0];
+    let close = document.getElementsByClassName('close')[0];
+    let text = document.getElementsByClassName("asd")[0];
+
+    function toggleModal(a, b) {
+      box.style.display = a;
+      text.innerHTML = b;
+    }
+    btn1.addEventListener("click", () => {
+      toggleModal('block', "아이디를 입력하세요");
+    });
+    btn2.addEventListener("click", () => {
+      toggleModal('block', "비밀번호를 입력하다던가");
+    });
+    close.addEventListener("click", () => {
+      toggleModal('none')
+    });
+
+    document.getElementsByClassName('btn')[0].addEventListener('click', function(){
+      document.querySelectorAll('.modal')[0].classList.toggle('on');
+    });
+  </script>
+</body>
+
+</html>

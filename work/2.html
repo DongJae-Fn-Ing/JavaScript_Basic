@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="2.css">
+</head>
+<body>
+  <div class="title">
+    <h2>메뉴바</h2>
+    <button class="menuopen">버튼</button>
+  </div>
+  <nav id="gnb" class="gnb">
+    <ul class="list">
+      <li class="lis lis1">메뉴1</li>
+      <li class="lis">메뉴2</li>
+      <li class="lis">메뉴3</li>
+      <li class="lis">메뉴4</li>
+    </ul>
+  </nav>
+  <script>
+    //편하게 선택하는 방법 쿼리셀렉터
+    document.querySelector('.lis')
+    //아이디 일 경우 document.querySelector('#gnb')
+    // 특징 맨위의 요소만 찾아준다.
+
+    /* 모든 요소를 찾을 경우 */
+    document.querySelectorAll('.lis')
+    document.querySelectorAll('.lis')[1]
+    // 모든 요소중 2번째 것 인덱스를 통해 찾을 수 있다.
+
+      document.getElementsByClassName('menuopen')[0].addEventListener('click', function(){
+       document.getElementsByClassName('gnb')[0].classList.toggle('on');
+       //자바스크립트 원하는 요소에다가 클래스를 추가하는 것 .classList.add
+       // toggle 자리에 add remove toggle
+     });
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/6.css">
+</head>
+
+<body>
+  <div class="dark_box">
+    <div class="box_sub">
+      <h2>다크모드를 만들거야</h2>
+      <p>자바스크립트 마스터</p>
+    </div>
+  </div>
+  <button type="button" class="btn">버튼</button>
+  <script>
+    /*     document.getElementsByClassName('btn')[0].addEventListener('click', function(){
+      document.querySelectorAll('.dark_box')[0].classList.toggle('black');
+      document.getElementsByTagName('h2')[0].classList.toggle('light');
+      document.getElementsByTagName('p')[0].classList.toggle('light');
+    }); */
+
+    var count = 0;
+    document.getElementsByClassName('btn')[0].addEventListener('click', function () {
+      //버튼을 클릭 횟수가 홀수면 클릭시 내부 글자를 light로 변경
+      //버튼을 클릭 횟수가 찍수면 클릭시 내부 글자를 dark로 변경
+      //클릭 횟수를 기억해야지?
+      // 저장하기 위해 변수를 사용
+      //var 변수명 ="변수에 삽일할 값"
+      // 변수란 잠깐 값을 저장하는 통
+
+
+
+      //클릭을 할때마다 값이 증가한다 그값은 유지
+      count++; //카운트라는 변수의 값에 +1을 해준다.
+      //변수++
+      //변수+=1
+      //변수 = 변수+1
+
+      //변수--
+      //변수-=1
+      //변수 = 변수-1
+
+      if (count % 2 == 1) {
+        document.querySelectorAll('.dark_box')[0].classList.add('black');
+        document.getElementsByTagName('h2')[0].classList.add('light');
+        document.getElementsByTagName('p')[0].classList.add('light');
+      } else if (count % 2 == 0) {
+        document.querySelectorAll('.dark_box')[0].classList.remove('black');
+        document.getElementsByTagName('h2')[0].classList.remove('light');
+        document.getElementsByTagName('p')[0].classList.remove('light');
+      }
+      console.log(count);
+    });
+
+    //바디 태그에
+
+    // = 할당 
+    var 이름 = 'kim';
+    // 굳이 변수에 담아쓰는 이유 긴 코드나 여러개인 것을 필요할 때마다 복붙하기는 힘들기 때문에
+    //변수에 저장을 하고 필요할 때 쓴다.
+    // 특정값을 기억하게 만들고 싶은면 쓴다
+    // 버튼을 누른 횟수 등등
+    // 문자 숫자 document... html 요소도 집어 넣을 수 있다.
+
+
+    //변수 추가 공부
+    // 변수에는 선언, 할당, 범위
+    // 선언은 변수를 선언해서 쓰겠다
+    // 아래처럼
+    //var 이름은 ="동재";
+    // 밑에 =는 할당
+    // var 이름은
+    // 이름은 = "동재";
+    //이렇게 두줄도 가능
+
+
+    var 이름은 = "동재";
+    이름은 = "가동재";
+    // 재활당이라고도 한다.
+
+    function 함수() {
+      var 이름 = "짱";
+      console.log(이름);
+      // 함수안에서 만든 변수는 함수 안에서만 사용가능
+      //함수 밖에서 못 씀
+    }
+
+    var 성별 = "남자";
+
+    function 뭐지() {
+      console.log(성별);
+      // 함수밖에서 선언한 변수는 어디서나 사용가능
+    }
+
+    //새로운 변수 선언법 
+
+    let 재선언불가 = "재할당 가능";
+
+    //ex
+    //let 재선언불가="동재";
+    //let 재선언불가="가동재";
+    //불가
+    //재할당은 가능
+    //실수 방지하기 너무나도 좋다
+
+
+    const 얘도재선언블가야 = "재할당 불가";
+
+    //ex
+    // const 얘도재선언블가야="동재";
+    // const 얘도재선언블가야="가동재";
+    // 얘도재선언블가야 = "가동재다"
+    // 한번 집어 넣으면 고정된 값 사용하기 좋다.
+
+
+    //보통 함수 안에서 var로 변수를 선언하면 함수 안에서만 사용
+    // let const 이 두게 친구들은 모든 {} 안에서만 사용한다.
+
+
+    //1번답 맞음
+    let 나이 = 28;
+    const 출신지역 = "경기도 시흥"
+    //2번답 맞음
+    //kim  0
+    //3번답
+
+    var 예금액 = 60000;
+    var 미래예금액 = 0;
+
+    if (예금액 < 50000) {
+      예금액 += (예금액 / 6.666);
+      미래예금액 = 예금액 += (예금액 / 6.666);
+    } else if (예금액 > 50000) {
+      예금액 += (예금액 / 5);
+      미래예금액 = 예금액 += (예금액 / 5);
+    }
+
+    console.log(미래예금액);
+// 방법 차이
+    var 예금액 = 60000;
+    var 미래예금액 = 0;
+
+    if (예금액 >= 50000) {
+      미래예금액 = 예금액 * 1.2 * 1.2;
+    } else {
+      미래예금액 = 예금액 * 1.15 * 1.15;
+    }
+
+    console.log(미래예금액)
+
+
+    var first = 360;
+    first += first/1.5;
+    first += first/2.5;
+    console.log(first);
+  </script>
+</body>
+
+</html>

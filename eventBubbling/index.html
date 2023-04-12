@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트버블링</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button type="button" class="btn">눌러!</button>
+  <div class="modal-wrap">
+    <div class="modal">
+      <h2>모달창</h2>
+      <form action="">
+        <input type="text" name="id" id="id"><br>
+        <input type="password" name="password" id="password">
+        <br>
+        <button type="submuit">전송</button>
+        <button type="button" id="sub" class="close">닫기</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    var modalwrap = document.querySelectorAll(".modal-wrap")[0];
+    var btn = document.getElementsByClassName("btn")[0];
+    var from = document.getElementsByTagName("form")[0];
+    var submit = document.getElementById("sub");
+    btn.addEventListener("click", function () {
+      modalwrap.classList.add("on");
+    });
+    modalwrap.addEventListener("click",function(e){
+     if(e.target === modalwrap){
+      modalwrap.classList.remove("on");
+     }
+    })
+  </script>
+</body>
+
+</html>

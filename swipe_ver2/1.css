@@ -1,0 +1,31 @@
+.wrap{
+  width: 2000px;
+  height: 300px;
+  transition: all 1s;
+}
+
+.on{
+  transform: translateX(0px);
+}
+
+.on1{
+  transform: translateX(-500px);
+}
+
+.on2{
+  transform: translateX(-1000px);
+}
+
+.box{
+  width: 500px;
+  height: 100%;
+  float: left;
+}
+
+.box1{background-color: red;}
+
+.box2{background-color: blue;}
+
+.box3{background-color: green;}
+
+.box4{background-color: yellow;}

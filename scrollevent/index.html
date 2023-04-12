@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤 이벤트</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1>스크롤 내려서 폰트 작게 만들기</h1>
+    </nav>
+  </header>
+
+  <div style="height: 2000px;">
+    <br>
+
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    스크롤바 내리면 로고 작게 만들기
+    <div class="box">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti illum itaque quasi recusandae a dicta sequi accusantium doloremque. Voluptatibus nulla iusto corporis ea repellendus natus, eum cumque obcaecati consequuntur amet?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, asperiores perferendis sequi, cupiditate sit nihil praesentium pariatur iusto nostrum voluptatum laudantium cumque obcaecati unde doloremque natus, incidunt reprehenderit quae dolorem?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, asperiores perferendis sequi, cupiditate sit nihil praesentium pariatur iusto nostrum voluptatum laudantium cumque obcaecati unde doloremque natus, incidunt reprehenderit quae dolorem?
+    </div>
+  </div>
+
+  <script>
+    const small = document.querySelectorAll('h1')[0];
+
+    /* window.addEventListener('scroll',function(){ }); */
+
+    /* small.style.fontSize ="14px"; */
+    /* window.scrollY */
+    //유저가 얼만큼 스크롤을 내렸는지 출력 px
+    // 천장이랑 스크롤 꼭대기 사이 공간 측정
+    // window.scrollX 가로
+    // window.scrollTo(0, 100);  괄호 안에 입력한 위치로 스크롤 강제 이동
+    // window.scrollbuy(0, 100); 이벤트가 발생하면 스크롤은 내려주세요   
+    //브라우저 창은 window
+    // 왼쪽의 요소가 스크롤 이벤트
+    window.addEventListener('scroll', function () {
+      if(window.scrollY > 500){
+        small.style.fontSize ="14px";
+      }else{
+        small.style.fontSize ="30px";
+      }
+
+      console.log(window.scrollY);
+    });
+
+
+    const box = document.getElementsByClassName('box')[0];
+    box.addEventListener('scroll',function(){
+      // 아래처럼 지정한 것에 scrollY은 사용 못함
+      // 윈도우에만 가능
+      // 요소 스크롤 여백을 알고 싶으면 scrollTop
+      // 요소 스크롤과 꼭대기 여백값을 알수있다.
+      // 요소의 실제 높이는 scrollHeight 스크롤바 포함 높이
+      // 그러나 
+      if(box.scrollTop + box.clientHeight  > box.scrollHeight - 2){
+        alert("약관 다 읽었지롱");
+        //오차가 있어서 빼줘야한다.
+        // 버그 1초에 60번 사용되니 많이쓰지말고 성능 떨어진다.
+        //
+      }
+    }, )
+
+    //scrollTop의 특징 위에서 부터 얼마나 내렸나
+    //즉 자신의 높이값은 빼고 내린것
+    //스크롤 탑에 자신의 값을 더해주면 스크롤바 끝까지 내린 것
+    //눈에 보이는 실제 높이를 구하는 법
+    //clientHeight
+
+
+    //현재 페이지를 찾고 싶으면 html 지정해서 사용
+/*     document.querySelector('html').scrollHeight;
+    document.querySelector('html').clientHeight; */
+    /* 얘네들은 바디 태그 전에 넣는게 좋다 */
+    //document.querySelector('html') == documentElement
+  </script>
+</body>
+
+</html>

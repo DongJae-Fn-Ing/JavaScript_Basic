@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <h2>로그인하세요</h2>
+    <input type="text" name="" id="email" class="nema"><br>
+    <input type="password" name="" id="password"><br>
+    <button type="submit">전송</button>
+    <button type="button">닫기</button>
+  </form>
+  <script>
+    
+    //'abc'.includes('a');
+    //'문자'.includes('찾을단어') 이런식
+    // 해석하면 왼쪽 문자에 includes안에 찾을 단어가 들어있냐?
+    // 그러나 한글이 들어있냐? 영어가 들어있냐 이런거는 못함
+    // ~A로 끝나냐나 숫자가 1회 출연하냐도 못함
+    // 앞에 단어에서 찾고
+
+    //정규식 문자를 검사할 수 있는 식
+    //  /a/ 보통이렇게 작성 정규식 안에 내가 찾을 문자를 담는다
+    //  /a/.test('abced'); 이런식
+    // a라는 글자 하나를 찾는다.
+    // a+를 붙으면 반복되는 것 찾느다.
+    // 테스트 뒤에서 찾는다.
+    // 장점 이렇게 범위 지정도 가능 /[a-z]/.test('abcde');
+    // 해석 a부터 z까지 아무 문자 한글자가 테스트 괄호 안에 있는 단어 안에 있나? 트루
+    //대문자도 가능
+    //a-zA_Z(영어다)  ㄱ-ㅎ가-히(한국어 문자 하나)
+    //0-9 숫자
+    // \s 아무 문자 하나 특수 문자도 포함
+    // /^a/ a로 시작하냐
+    // /a$/ a로 끝나나
+    // /a|b/ a또는 b
+    // (a|b) 괄호 안에 있는 거 먼저
+/*     /\S@\S\.\S/.test('rkehdwo48@gmail.com'); */
+    // 정규식에서 .은 특별한 정규식 문법이기 때문에
+    // .앞에 \하나 더 해준다. 그래야 점을 검사해준다
+    // s는 글자 갯수이다 하나있으면 하나
+    ///\S+@\S+\.\S+/.test('aaa@bbb.ccc');
+    // S에 +가 붙으면 왼쪽 문자 반복검색
+    document.getElementsByTagName('form')[0].addEventListener('submit', function(){
+      let Myid = document.getElementsByClassName('nema')[0].value;
+      let password = document.getElementById('password').value
+      if(Myid == ''){
+        alert('없어요');
+      }
+      if(/\S+@\S+\.\S+/.test(Myid)){
+        /* 이자리에 true false가 남음 */
+        alert('이메일 형식 아님');
+      }
+      if(/[A-Z]/.test(password)==false){
+        alert('대문자 없어');
+      }
+    });
+  </script>
+</body>
+</html>

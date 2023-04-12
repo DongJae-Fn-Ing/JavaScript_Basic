@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+  <div style="overflow: hidden; width: 500px;">
+    <div class="wrap">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+    </div>
+  </div>
+  <button type="button" class="prev">이전</button>
+  <button type="button" class="btn1">1</button>
+  <button type="button" class="btn2">2</button>
+  <button type="button" class="btn3">3</button>
+  <button type="button" class="btn4">4</button>
+  <button type="button" class="next">다음</button>
+  <script>
+    var wrap = document.getElementsByClassName('wrap')[0]
+    var slideSee = 0; //값을 저장할 변수
+    document.getElementsByClassName('btn1')[0].addEventListener('click', function () {
+      /*       wrap.classList.add('on');
+            wrap.classList.remove('on1');
+            wrap.classList.remove('on2'); */
+      wrap.style.transform = "translateX(0px)";
+      slideSee = 0;
+    });
+    document.getElementsByClassName('btn2')[0].addEventListener('click', function () {
+      /*       wrap.classList.add('on1');
+            wrap.classList.remove('on2'); */
+      wrap.style.transform = "translateX(-500px)";
+      slideSee = 5;
+    });
+    document.getElementsByClassName('btn3')[0].addEventListener('click', function () {
+      /* wrap.classList.add('on2') */
+      wrap.style.transform = "translateX(-1000px)";
+      slideSee = 10;
+    });
+    document.getElementsByClassName('btn4')[0].addEventListener('click', function () {
+      /* wrap.classList.add('on2') */
+      wrap.style.transform = "translateX(-1500px)";
+      slideSee = 15;
+    });
+    /*      document.getElementsByClassName('next')[0].addEventListener('click',function(){
+          if(wrap.style.transform == "translateX(0px)"){
+            wrap.style.transform ="translateX(-500px)";
+          }else if(wrap.style.transform == "translateX(-500px)"){
+            wrap.style.transform ="translateX(-1000px)";
+          }
+        });
+        document.getElementsByClassName('prev')[0].addEventListener('click',function(){
+          if(wrap.style.transform == "translateX(-500px)"){
+            wrap.style.transform ="translateX(0px)";
+          }else if(wrap.style.transform == "translateX(-1000px)"){
+            wrap.style.transform ="translateX(-500px)";
+          }
+        }); */
+/*     var slideSee = 1
+    document.getElementsByClassName('next')[0].addEventListener('click', function () {
+      if (slideSee == 1) {
+        wrap.style.transform = "translateX(-500px)";
+        slideSee++;
+      } else if (slideSee == 2) {
+        wrap.style.transform = "translateX(-1000px)";
+      }
+    });
+    document.getElementsByClassName('prev')[0].addEventListener('click', function () {
+      if (slideSee == 1) {
+        wrap.style.transform = "translateX(0px)";
+      } else if (slideSee == 2) {
+        wrap.style.transform = "translateX(-500px)";
+      }
+      slideSee--;
+    }); */
+
+    document.getElementsByClassName('next')[0].addEventListener('click', function () {
+      slideSee += 5;
+      wrap.style.transform = 'translateX(-'+slideSee+'00px)';
+       if(slideSee>=15){
+        slideSee = 15;
+        wrap.style.transform = 'translateX(-'+slideSee+'00px)';
+      }
+    });
+    document.getElementsByClassName('prev')[0].addEventListener('click', function () {
+      slideSee -= 5;
+      wrap.style.transform = 'translateX(-'+slideSee+'00px)';
+      if(slideSee<=0){
+        slideSee = 0;
+        wrap.style.transform = 'translateX(-'+slideSee+'00px)';
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .box {
+      width: 300px;
+      height: 500px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" style="text-align: center;">
+
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">이름</h3>
+        <p class="price">가격</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">이름</h3>
+        <p class="price">가격</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">이름</h3>
+        <p class="price">가격</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    //첫번째 박스에는 아이디 키값이 0 벨류들이 삽입되고
+    //두번째 박스에는 아이디 키값 1인 벨류./
+
+
+
+    /* for(let i =0; i<3; i++){
+    var data = products.id[i];
+
+    }
+     */
+    for (let i = 0; i < 3; i++) {
+      var products = [{
+          id: 0,
+          price: 70000,
+          title: 'Blossom Dress'
+        },
+        {
+          id: 1,
+          price: 50000,
+          title: 'Springfield Shirt'
+        },
+        {
+          id: 2,
+          price: 60000,
+          title: 'Black Monastery'
+        }
+      ];
+
+      document.getElementsByClassName('title')[i].innerHTML = products[i].title;
+      // products[i][title];
+      document.getElementsByClassName('price')[i].innerHTML = '가격: ' + products[i].price;
+    }
+    /* 
+    document.querySelectorAll('.클래스나아이이 h2')[0]; 
+    이런식으로 작성을 하면 부모 하위의 h2를 찾을 수 있다 */
+
+
+    //기억 더듬기 숫자 + 문자 더하면 숫자문자.... 문자식으로 출력
+
+    //문자 중간에 변수 넣기
+    var a = 안녕;
+    '문자' + a + '문자'
+    /* 위에 방법이 있고 */
+    /* 그러나 플러스 기호 쓰기 힘들면 */
+    `문자 ${a}문자`
+
+    /* `` 백틱 기호안에 ${변수} 이런식으로 짜면 변수가 선언이 된다. */
+  </script>
+</body>
+
+</html>

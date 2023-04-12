@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/5.css">
+</head>
+
+<body>
+  <div class="modal">
+    <h4>로그인을 하든가</h4>
+    <form action="">
+      <input type="text" class="email"><br>
+      <input type="password" name="" id="">
+      <br>
+      <button type="submit">전송</button>
+      <button>닫기</button>
+    </form>
+  </div>
+  <button type="button">다크모드</button>
+  <script>
+    document.getElementsByClassName('email')[0].addEventListener('input', function(){
+      //이벤트 리스너에 input이 들어갈 경우
+      //인풋에 값이 변할 때 마다 이벤트 발생
+      //유사한 것 change 그러나 change 다른 값을 입력하고
+      //마우스로 클릭을 해야 이벤트가 발생을 한다.
+      console.log('안녕');
+
+      //조건식의 동작원리
+
+      //if(참일경우){} 작동 true를 남긴다
+      //if(거짓일 경우){} 미작동 false를 남긴다.
+      // true fals >>> boolean 논리형 타입
+      // !=   다르냐      1 != 1  이경우 false 출력
+      // 1 === 2       엄격한 비교 가능 타입까지 같아야
+      // 1 == '1' 이러면 같다고 하지만
+      // 1 === '1' 이러면 거짓 이라고 나온다. 
+      // 1 !=='1' 두개가 다르니깐 참
+      // 1은 true라 인식을 하고 0은 false라 조건문() 안에서
+      // && and 연산자 왼쪽이 참이고 오른쪽도 참이면 조건문을 실행해라
+      // || or 연산자 둘중에 하나만 참이면 참으로 판단
+      // 몇개가 연속으로 조건문에 들어가도 상관이 없다.
+      //조건문() 안에서 ()를 처서 먼저 계산을 하게해도 된다. 수학처럼
+    });
+
+
+    //1번문제 해결
+/*     function gameA(a){
+        if(a%3==0){
+          console.log('박수');
+        }else{
+          console.log('통과');
+        }
+      } */
+
+      //2번문제
+/*     function gameA(a){
+        if(a%3==0){
+          console.log('박수');
+          if(a%9==0){
+            console.log('박수');
+          }
+        }else{
+          console.log('통과');
+        }
+      } */
+      //3의 배수이면 박수를 한번
+      // 9의 배수이면 박수를 두면
+      //아닐경우 통과
+/*       function gameA(a,b){
+        if(a%b==0&&b==3){
+          console.log('박수');
+        }else if(a%9==0&&b==9){
+          console.log('박수 박수');
+        }
+        else{
+          console.log('통과');
+        }
+      } */
+/*       function gameA(a){
+        if(a%3==0&&){
+          console.log('박수');
+        }else if(a%9==0){
+          console.log('박수 박수');
+        }
+        else{
+          console.log('통과');
+        }
+      } */
+
+
+      //3번문제 해결
+/*       function gameB(a,b){
+        if(a+b>120&&a>40&&b>40){
+          console.log('합격');
+        }
+        if(a+b<120||a<40||b<40){
+          console.log('불합격');
+        }
+      } */
+      //응용 해결
+/*       function gameB(a,b){
+        if(a+b>=120&&100>=a>40&&100>=b>40){
+          console.log('합격');
+        }else if(a+b<120 || a<40 || b<40){
+          console.log('불합격');
+        }else if(a>100||b>100){
+          alert('너무 큰 숫자 입력하지마');
+        }
+      } */
+
+
+/*       function gameA(a){
+        if(a%3==0&& a/3){
+          console.log('박수');
+        }else if(a%9 ==0){
+          console.log('박수박수');
+        }
+        else{
+          console.log('통과');
+        }
+      }  */
+      
+      /* 응용해결 */
+/*       function gameA(a){
+        if(a%10 == 3&&6&&9){
+          console.log('박수');
+        }
+        else{
+          console.log('통과');
+        }
+      }  */
+    
+      
+  </script>
+</body>
+
+</html>

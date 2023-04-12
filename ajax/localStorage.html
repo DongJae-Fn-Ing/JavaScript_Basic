@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로컬스토리지</title>
+  <style>
+    .wrap {
+      width: 1000px;
+      height: auto;
+      border: 1px solid black;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .box {
+      width: 300px;
+      height: 500px;
+      border: 1px solid blue;
+      margin-bottom: 20px;
+    }
+
+    .more,
+    .money_baby {
+      width: 100px;
+      height: 50px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" style="text-align: center;">
+
+  </div>
+  <button type="button" class="more">더보기</button>
+
+  <script>
+    var products = [{
+        id: 0,
+        price: 70000,
+        title: 'Blossom Dress'
+      },
+      {
+        id: 1,
+        price: 50000,
+        title: 'Springfield Shirt'
+      },
+      {
+        id: 2,
+        price: 60000,
+        title: 'Black Monastery'
+      }
+    ];
+
+    function 재활용() {
+      products.forEach(function (itme) {
+        var name = itme.title;
+        var money = itme['price'];
+        var box = `
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <p class="title">${name}</p>
+        <p class="price">${money}원</p>
+        <button type="button" class="buy">구매</button>
+      </div>
+    </div>
+    `;
+        document.getElementsByClassName('wrap')[0].insertAdjacentHTML('beforeend', box);
+      });
+
+    }
+
+    재활용();
+
+
+    //데이터를 반 영구적으로 저장하는 방법
+    //브라우저 안에 몰래 데이터 저장가능
+    //개발자 도구  Application 로컬 스토리지 등등....
+    //localStorage나 sessionStorage는 이름:값 형태로 저장가능 오브젝트 형태 고 용량은 5mb // 문자숫자만 저장가능
+    // sessionStorage 휘발성 껏다가 끄면 날아감  localStorage 반 영구적
+    //indexedDB는 구조화된 대용량데이터 저장시
+    //쿠키는 유저의 인증 정보
+    //cache storage는 html css js 파일 저장하는 곳
+
+
+    //로컬 스토리지에 저장법
+    localStorage.setItem('이름', '가동재');
+
+    //로컬 스토리지 데이터 추출법
+    localStorage.getItem('이름');
+    console.log(localStorage.getItem('이름'));
+
+    //로컬 스토리지 데이터 삭제법
+    /* localStorage.removeItem('이름'); */
+
+    //편법 배열이나 객체를 저장하는 방법
+    //제이슨으로 변환해서 저장
+
+    var arr = [1, 2, 3];
+
+    //array/object -> json
+    //제이슨으로 변환
+    JSON.stringify(arr);
+
+
+    var arrJson = JSON.stringify(arr);
+    localStorage.setItem('num', arrJson);
+    localStorage.getItem('num');
+
+    var 꺼낸거 = localStorage.getItem('num');
+
+    console.log(꺼낸거);
+
+    //json > array/object
+    JSON.parse(꺼낸거);
+    //이렇게 변환을 해서 인덱싱도 가능
+    console.log(JSON.parse(꺼낸거));
+
+    //sessionStorage에 저장하고 싶으면 
+    // 위에 친것들을 localStorage > sessionStorage 바꿔서 저장
+
+    // localStorage 안에 데이터를 수정하고 싶으면
+    // 자료를 꺼내고
+    // 꺼낸거 수정
+    // 다시 저장함
+
+
+    //숙제 구매버튼 누르면 localStorage에 저장 하나의 배열 안에
+
+    //1. 카드하단 구매버튼추가하고 그거 누르면 누른 상품의 이름을 localStorage에 저장하기
+    // 내 형제요소 찿는 법 sibling
+
+    // 비어 있을 때 경우
+    // 뭐가 있을 때
+
+
+    for (var i = 0; i < 3; i++) {
+      document.getElementsByClassName('buy')[i].addEventListener('click', function (e) {
+
+        console.log(this.previousElementSibling.previousElementSibling.innerText);
+
+        var text = this.previousElementSibling.previousElementSibling.innerText;
+
+        var aaa = localStorage.getItem('cot');
+        if (aaa != null) {
+          JSON.parse(aaa);
+          aaa[aaa.length] = text;
+          JSON.stringify(aaa);
+          localStorage.setItem('cot', aaa)
+        } else {
+          localStorage.setItem('cot', JSON.stringify([text]));
+        }
+
+
+
+        console.log(aaa);
+        /*  */
+      });
+    }
+  </script>
+</body>
+
+</html>

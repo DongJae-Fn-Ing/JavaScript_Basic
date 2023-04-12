@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout</title>
+  <link rel="stylesheet" href="../css//7.css">
+</head>
+<body>
+  <div class="hello">
+    <span>5</span>초 이내 구매시 사은품 증정!
+  </div>
+
+  <script>
+    /* 5초 후에 문서의 hello라는 클래스 요소를 가진 것을 제거해라 */
+
+
+    //5초 후에 자바스크립트 기본 함수   == setTimeout();
+    //  == setTimeout(); 몇초 후에 사용
+    //  setTimeout(콜백함수function(){실행코드()}, ms 초); 파라미터 두개가 들어간다.
+    // 초단위는 천단위 1000 = 1초
+/*     var hello = document.getElementsByClassName('hello')[0];
+    setTimeout(function(){
+      hello.style.display = 'none';
+    },5000); */
+
+    //setInterval 초마다 이 함수를 실행해주세요
+/*     setInterval(function(){
+      console.log("안뇽");
+    },5000); */
+
+
+
+//아래 방식대로 함수를 선언하고 콜백함수 자리에 넣으면 함수 내용이 몇초 후에 실행이 된다. 함수() 말고 함수 이름만 삽입
+//      addEventListener(함수); << 얘도 마찬가지
+/*       setTimeout(함수,5000);
+      function 함수(){
+        alert("안녕");
+      } */
+
+/* 
+위에서 만든 <div>안에 "5초 이내 구매시 사은품 증정" 이라는 문자가 있습니다.
+1초마다 5라는 문자를 1씩 감소시켜봅시다.
+0이 되면 <div>를 안보이게 처리합시다.  */
+  var span = document.getElementsByTagName('span')[0];
+  var hi = document.getElementsByClassName('hello')[0];
+  var 타이머 = setInterval(function(){
+    --span.innerHTML;
+    if( span.innerHTML == 0){
+      hi.style.display ='none';
+      clearTimeout(타이머);
+  }
+  },1000);
+
+  //clearTimeout(타이머) 초 함수를 타이머 변수에 담아 
+  //clearTimeout 안에 담아주면 타이머를 삭제할 수 있다.
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  UI만드는 step 이러면 끝<br>
+  1.html/css 미리 디자인(필요하면 숨김)<br>
+  2.필요할 때 보여달라고 코드짬 (자바스크립트)<br>
+
+  <div class="alert_box" id="aa">알림창임
+
+    <button type="button" onclick="alertToggle('none')">닫기</button>
+  </div>
+  <!-- <button type="button" onclick="alert박스 보여줘">버튼</button>
+  onclick 클릭하면
+  -->
+  <button type="button" onclick="alertToggle('block')">버튼</button>
+
+
+  <script>
+
+    /* 긴코드를 짧은 단어로 짧게 할 때 function 작명(){
+      document.getElementById('aa').style.display='none';
+      이렇게 넣으면 긴코드를  작명이라는 단어로 줄인다.
+    }
+    작명() << 호출
+    */
+/* 
+    function alertOpen(구멍){
+      document.getElementById('aa').style.display= 구멍;
+    }
+
+    //alertOpen('안녕'); //구멍 자리에 안녕을 넣어서 실행을 해라
+    //alertOpen('바보'); //구멍 자리에 바보를 넣어서 실행을 해라
+    //alertOpen(123);
+    //''로 넣으면 문자 숫자는 그냥 써도 상관없다.
+
+
+    function alertClose(){
+      document.getElementById('aa').style.display='none';
+    }
+ */
+
+ /* 하나의 함수로 여러기능을 피라미터를 통해 하는 것을 파라미터함수 */
+
+ function alertToggle(파라미터){
+   document.getElementById('aa').style.display = 파라미터;
+ }
+
+
+ function plus(a,b){
+   document.getElementById(b).style.display= a;
+ }
+
+ /* plus('aa','block'); */
+ /* 이런식도 가능 */
+ 
+
+  </script>
+
+  
+
+  
+</body>
+</html>

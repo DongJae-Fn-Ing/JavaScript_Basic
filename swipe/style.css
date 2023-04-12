@@ -1,0 +1,13 @@
+body * { margin: 0; padding: 0; box-sizing: border-box; } 
+
+li { list-style: none; } 
+
+.slide_wrap{width: 500px; height: 500px; overflow: hidden;}
+.slide_sub { width: 3000px; height: 500px; display: flex; /* transition: all 0.3s; */} 
+
+.slide { width: 500px; height: 500px; } 
+.slide.red { background-color: red; } 
+.slide.blue { background-color: blue; }
+.slide.green { background-color: green; }
+.slide.yellow { background-color: yellow; }
+.slide.purple { background-color: purple; }

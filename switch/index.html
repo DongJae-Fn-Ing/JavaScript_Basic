@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="quiz">
+    <h4>물에 빠지면 누구 구할거임?</h4>
+    <button type="button">와이프</button>
+    <button type="button">부모님</button>
+    <button type="button">키운던개</button>
+  </div>
+  <script>
+    document.querySelector('#quiz').addEventListener("click", function (e) {
+      switch (e.target.innerHTML) {
+        case "와이프":
+          alert("와이프를 사랑하네요");
+          break;
+        case "부모님":
+          alert("효자네");
+          break;
+        case "키운던개":
+          alert("동물을 사랑하네요");
+          break;
+      }
+    });
+    //이벤트 버블링 이용
+
+
+
+    let 변수 = 2 + 2;
+    switch (변수) {
+      // 위에 있는 변수가
+      case 3:
+        // 3인 경우 아래 코드를 실행
+        alert('변수가 3이네요');
+        break
+        // 브레이크는 탈출
+        // 없을 경우 밑에 있는 코드도 다 실행 브레이크가 있어야함 
+      case 4:
+        alert('변수가 4이네요');
+        break
+
+      default:
+        alert('해당안함');
+        //else랑 위에 케이스들에게 해당 안하는 경우 실행
+    }
+    //이프문 대용으로 사용하는 스위치 케이스
+    //if는 다양한 조건식 가능
+    //switch 변수 1개만 테스트 가능  === 등호 비교 밖에 불가
+    // 왜 써? 코드를 깔끔하게 만들 때
+    //변수값 하나에 따라서 다양한 기능을 사용하고 싶을 때 사용 
+    //
+  </script>
+</body>
+
+</html>

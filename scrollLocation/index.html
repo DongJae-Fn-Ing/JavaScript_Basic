@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포지션 스티키</title>
+  <style>
+    body{
+      background: gray; height: 3000px
+    }
+    .gray{
+      background: lightgrey; height: 2000px; margin-top: 500px
+    }
+    .img{
+      float: right;
+      width: 400px;
+      
+      /* 스크롤 되다가 고정 */
+      position: sticky;
+      /* 고정 위치  fixed랑 유사*/
+      top: 100px;
+      /* 스크롤이 되다가 조건부로 고정 */
+      /* 부모 div가 넘어가면 풀림  */
+    }
+    img{
+      width: 100%;
+    }
+
+    .text{
+      float: left;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gray">
+    <div class="img" >
+      <img src="dog.jpg" alt="">
+    </div>
+
+    <div class="text">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos quaerat libero id aspernatur maiores voluptas sunt molestiae incidunt ab, voluptates nesciunt officia ad, aperiam beatae similique ipsa voluptate debitis est.
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati quia, ratione amet earum dolorum magnam commodi doloribus ducimus ipsa architecto harum, dolorem vel quam debitis aut culpa autem? Sed, esse?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae consequuntur quos impedit est quae incidunt quis atque, autem, facilis ab quidem neque non aut suscipit, reiciendis molestiae iste fugiat corrupti?
+    </div>
+  </div>
+</body>
+</html>

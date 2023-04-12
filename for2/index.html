@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>for문</title>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <ul class="tab_menu">
+      <li class="tab on"data-id="0"><a href="#none">런던</a></li>
+      <li class="tab" data-id="1"><a href="#none">파리</a></li>
+      <li class="tab" data-id="2"><a href="#none">서울</a></li>
+      <li class="tab" data-id="3"><a href="#none">도쿄</a></li>
+      <!-- //data-???? 몰래 정보  -->
+    </ul>
+    <div class="tab_wrap">
+      <div class="tab_content blue on">
+        런던입니다~~~
+      </div>
+      <div class="tab_content red">
+        파리입니다~~~
+      </div>
+      <div class="tab_content green">
+        서울입니다~~~
+      </div>
+      <div class="tab_content yellow">
+        도쿄입니다~~~
+      </div>
+    </div>
+    <!-- 유저는 html에 몰래 정보 숨기기 가능 -->
+  </div>
+  <script>
+/*     for (let i = 0; i < $(".tab").length; i++) {
+      $(".tab").eq(i).on("click", function () {
+        탭열기(i);
+      });
+    } */
+
+
+    //함수를 호출에서 반복문의 함수를 사용할 경우
+
+
+    //반복문 없이 탭메뉴 만들기
+    //이벤트 리스너 하나만 사용해서 이벤트 만들기
+
+
+    //이벤트 버블링을 이용해서
+
+    function asd(i){
+      $('.tab').removeClass('on');
+        $('.tab').eq(i).addClass('on');
+        $('.tab_content').removeClass('on');
+        $('.tab_content').eq(i).addClass('on');
+    }
+    $(".tab_menu").click(function(e){
+      console.log(e.target.dataset.id);
+      asd(e.target.dataset.id)
+    });
+
+  </script>
+</body>
+
+</html>

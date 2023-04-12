@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>셀렉트</title>
+  <style>
+    select {
+      width: 300px;
+      height: 38px;
+    }
+
+    .Size {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .Size.off {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="">
+    <p>상품선택</p>
+    <select name="" id="" class="select">
+      <option>모자</option>
+      <option>셔츠</option>
+    </select>
+    <br>
+    <select name="" id="" class="Size off">
+      <option>95</option>
+      <option>100</option>
+      <option>105</option>
+    </select>
+  </form>
+
+
+
+  <div id="test">
+
+  </div>
+
+  <script>
+    /* 
+    let Select = document.getElementsByClassName('select')[0];
+    let sizeA = document.getElementsByClassName('Size')[0];
+    
+
+    Select.addEventListener('change', function(){
+      if (Select.value == "셔츠" ){
+        sizeA.classList.remove('off');
+      
+      }else{
+        sizeA.classList.add('off'); 
+      }
+    }); */
+
+
+    //자바스크립트로 html 추가
+    //   document.createElement html 생성
+    var a = document.createElement('p');
+    a.innerHTML = "안녕"
+    a.classList.add('classplus'); // 클래스 추가
+    /* 원하는 곳에 추가 .appendChild(요소); */
+    document.querySelectorAll('#test')[0].appendChild(a);
+
+
+    // 간단한 문법
+    // 변수안에 html 문법으로 작성을 한 후
+    //insertAdjacentHTML('beforeend', 요소);
+    var 생코딩 = '<p class="hellow">안녕2</p>'
+    document.querySelectorAll('#test')[0].insertAdjacentHTML('beforeend', 생코딩);
+    // 앞에 요소 안에  beforeend === 맨 밑에 생코딩 변수를 추가해주세요
+    // 제이쿼리는 append
+    // 갈아 엎고 싶으면 innerhtml
+
+    // 성능은 앞에가 빠르고
+    // 뒤에게 느리지만 서의 차이가 없다.
+
+    /*    let Select = document.getElementsByClassName('select')[0];
+        let sizeA = document.getElementsByClassName('Size')[0];
+        
+
+        Select.addEventListener('change', function(){
+          if (Select.value == "셔츠" ){
+            sizeA.classList.remove('off');
+          
+            var c = `<option value="">95</option>
+            <option value="">100</option>`
+            sizeA.innerHTML = c;
+
+          }else if(Select.value == "바지"){
+            sizeA.classList.remove('off');
+            var b = `<option value="">28</option> 
+            <option value="">30</option>`;
+            /* sizeA.insertAdjacentHTML('beforeend', b); */
+    /*         sizeA.innerHTML= b; */
+    /*       }else{
+            sizeA.classList.add('off');
+            var c = `<option value="">95</option>
+            <option value="">100</option>`
+            sizeA.innerHTML = c;
+          }
+        }); */
+
+
+        //어레이랑 오브젝트 데이터를 다 꺼내고 싶을 때
+
+
+    let Select = document.getElementsByClassName('select')[0];
+    let sizeA = document.getElementsByClassName('Size')[0];
+
+    let option = document.createElement('option');
+    option.innerHTML = "바지";
+    Select.appendChild(option);
+
+
+    var pants = [28, 30, 32];
+    var Shirt = [95,100, 105, 110]
+    Select.addEventListener('change', function () {
+      if (Select.value == "셔츠") {
+        sizeA.classList.remove('off');
+        sizeA.innerHTML = '';
+        Shirt.forEach((a)=>{ //화살표 함수 애로우 펑션
+          //애로우 펑션은  일반 펑션과는 다른점 this 값을 함수 밖에서 가져오기 때문에 e.partentaget이랑 같은 this를 사용하려면 그냥 펑션 사용해
+        sizeA.insertAdjacentHTML('beforeend', `<option value="">${a}</option>`)
+        })
+
+      } else if (Select.value == "바지") {
+        sizeA.classList.remove('off');
+        sizeA.innerHTML = '';
+
+        pants.forEach(function (p,i) {
+          var a = `<option value="">${p}</option>`
+          sizeA.insertAdjacentHTML('beforeend', a);
+        });
+
+        //forEach란 array 배열에만 붙게 할 수 있는 반복문
+        // 배열의 갯수만큼 배열을 복붙해주다
+        // 성능은 for 반목문이 더 좋다
+        // forEach에 파라미터를 넣으면 파라미터를 매개로 반복을 한다.
+        // forEach에 파라미터를 2개 생성가능 
+        // 첫쨰는 array 안의 데이터를 순차적으로
+        // 둘째는 0부터 1씩 증가하는 정수
+        // 작명은 보통 아이템 데이타
+      } 
+    });
+
+
+    /*    let bottomSize = '<option >28</option>'
+       sizeA.insertAdjacentHTML("beforeend", bottomSize); */
+
+
+       //오브젝트도 반복문이 가능하다
+       // for in
+      var obj ={ name: 'kar', age: 28}
+
+      for(var key in obj){
+        console.log(obj[key]);
+      }
+      //key는 키값
+      // 키의 갯수만큼 반복한다.
+  </script>
+</body>
+
+</html>

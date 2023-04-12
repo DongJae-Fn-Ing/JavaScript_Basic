@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .box {
+      width: 300px;
+      height: 500px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" style="text-align: center;">
+
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">이름</h3>
+        <p class="price">가격</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">이름</h3>
+        <p class="price">가격</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="https://via.placeholder.com/300" alt="">
+      <div class="text_box">
+        <h3 class="title">이름</h3>
+        <p class="price">가격</p>
+        <button type="button">버튼</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <form action="" method="post"></form>
+  <!-- post 요청법 -->
+  <script>
+    for (let i = 0; i < 3; i++) {
+      var products = [{
+          id: 0,
+          price: 70000,
+          title: 'Blossom Dress'
+        },
+        {
+          id: 1,
+          price: 50000,
+          title: 'Springfield Shirt'
+        },
+        {
+          id: 2,
+          price: 60000,
+          title: 'Black Monastery'
+        }
+      ];
+
+      document.getElementsByClassName('title')[i].innerHTML = products[i].title;
+      // products[i][title];
+      document.getElementsByClassName('price')[i].innerHTML = '가격: ' + products[i].price;
+    }
+
+
+    //서버란 데이터달라고 하면 데이터보내주는 프로그램
+    // 막무가내로 데이터를 달라고 하면 불가하고
+    // 1. 어떤 데이터인지? (데이터의 url)2. 어떤 방법으로 요청할건지? 잘 기재해야 데이터줌 (get인지 post)
+    // 웹툰을 본다치먄
+    // 데이터의 url 기재해야함 comic.naver.com
+    // get과 post 둘 중하나 선택해야함 get데이터를 읽을 때 post 데이터를 보낼때
+
+    //get 요청 
+    //브라우저 url 치는 곳이 겟 요청하는 곳
+    //post 요청
+    // form 태그에 메소트 속성 post action에는 링크 입력해주고
+    // 유저가 서버에 데이터 보내려면 거의 post요청 필요 댓글 블로그 글쓰기
+
+    // 겟 포스트 단점 그냥 쓰면 페이지가 새로고침이 된다.
+    // 이러면 속도가 느린데 단점을 보완한게 ajax 
+    // ajax란 새로고침없이 get,post 요청하는 기능
+
+
+    // $.get('url~~~') 제이쿼리 방식 get 통신방법
+
+    // 통신에 성공하면 아래 콜백함수(data)를 실행하라 == done 
+    // data는 ajax에서 받아온 데이터
+
+    /* $.get('url~~~').done(function(data){
+
+    }) */
+
+    // $.post('url~~~') 제이쿼리 방식 post 통신방법
+    // 
+    /* $.post('url~~~',{name:'kim'}).done(function(data){
+
+    }) */
+
+    /* 실패시 */
+    /* $.get('url~~~').done(function(data){
+
+    })
+    .fail(function(){
+
+    }) */
+
+    //404에러는 url 주소가 이상하다의 에러다
+
+    // 자바스크립트 법
+    fetch('https://codingapple1.github.io/price.json')
+      .then(res => res.json()) // 한줄이 더 필요한 이유 원래는 문자자료만 받을 수 있지만 객체 배열을 받을 수 있는 것은 전부 ""표 처리해서 보낸다 그게 제이슨
+      //제이슨으로 변환한다.
+      .then(function (data) {
+        console.log(data)
+      })
+      .catch(function (error) {
+        console.log('실패함')
+      });
+    //포스트 요청법
+  </script>
+</body>
+
+</html>
